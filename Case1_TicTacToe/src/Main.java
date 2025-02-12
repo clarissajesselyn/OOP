@@ -21,22 +21,26 @@ public class Main {
         int x, y;
         int step = 0;
         do {
+            //Input Coordinat to Play
             do {
-                System.out.println("Player " + numPlayer + " move " + "(" + player + "): ");
+                System.out.print("Player " + numPlayer + " move " + "(" + player + "): ");
                 x = sc.nextInt();
                 y = sc.nextInt();
-            } while ((x < 0 || x > 2 || y < 0 || y > 2) && board[y][x]!='-');
+            } while (x < 0 || x > 2 || y < 0 || y > 2 || board[y][x]!='-');
             board[y][x] = player;
             printBoard();
             step++;
-            char win = checkWinner();
-            if (win != '-'){
-                System.out.println("Player " + win +" wins");
+
+            //Check Winner
+            if (checkWinner(player)){
+                System.out.println("Player " + player +" Win!!");
                 break;
             } else if (step == 9){
                 System.out.println("It's Draw!!");
                 break;
             }
+
+            //Switch Player
             if (player == 'O'){
                 player = 'X';
                 numPlayer = 2;
@@ -55,25 +59,20 @@ public class Main {
             System.out.println("");
         }
     }
-    public char checkWinner(){
-        String[] check = new String [8];
-        check[0] = Character.toString(board[0][0]) + Character.toString(board[1][0]) + Character.toString(board[2][0]); //horizontal
-        check[1] = Character.toString(board[0][1]) + Character.toString(board[1][1]) + Character.toString(board[2][1]);
-        check[2] = Character.toString(board[0][2]) + Character.toString(board[1][2]) + Character.toString(board[2][2]);
-        check[3] = Character.toString(board[0][0]) + Character.toString(board[1][1]) + Character.toString(board[2][2]); //diagonal
-        check[4] = Character.toString(board[2][0]) + Character.toString(board[1][1]) + Character.toString(board[0][2]);
-        check[5] = Character.toString(board[0][0]) + Character.toString(board[0][1]) + Character.toString(board[0][2]); //vertical
-        check[6] = Character.toString(board[1][0]) + Character.toString(board[1][1]) + Character.toString(board[1][2]); 
-        check[7] = Character.toString(board[2][0]) + Character.toString(board[2][1]) + Character.toString(board[2][2]);
-
-        for (int i = 0; i<8; i++){
-            if (check[i].equals("XXX")){
-                return 'X';
-            } else if(check[i].equals("OOO")) {
-                return 'O';
+    public boolean checkWinner(char play){
+        for (int i = 0; i<3; i++){
+            //Horizontal & Vertical
+            if ((board[i][0] == play && board[i][1] == play && board[i][2] == play) || (board[0][i] == play && board[1][i] == play && board[2][i] == play)) {
+                return true;
             }
         }
-        return '-';
+
+        //Diagonal
+        if ((board[0][0] == play && board[1][1] == play && board[2][2] == play) || (board[2][0] == play && board[1][1] == play && board[0][2] == play)){
+            return true;
+        }
+
+        return false;
     }
 
     public static void main(String[] args) throws Exception {
