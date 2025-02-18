@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Main {
     public Scanner sc;
     char [][] board = new char[3][3];
@@ -21,7 +22,7 @@ public class Main {
         int x, y;
         int step = 0;
         do {
-            //Input Coordinat to Play
+            // Input Coordinat to Play
             do {
                 System.out.print("Player " + numPlayer + " move " + "(" + player + "): ");
                 x = sc.nextInt();
@@ -31,7 +32,7 @@ public class Main {
             printBoard();
             step++;
 
-            //Check Winner
+            // Check Winner
             if (checkWinner(player)){
                 System.out.println("Player " + player +" Win!!");
                 break;
@@ -40,7 +41,7 @@ public class Main {
                 break;
             }
 
-            //Switch Player
+            // Switch Player
             if (player == 'O'){
                 player = 'X';
                 numPlayer = 2;
@@ -61,13 +62,13 @@ public class Main {
     }
     public boolean checkWinner(char play){
         for (int i = 0; i<3; i++){
-            //Horizontal & Vertical
+            // Horizontal & Vertical
             if ((board[i][0] == play && board[i][1] == play && board[i][2] == play) || (board[0][i] == play && board[1][i] == play && board[2][i] == play)) {
                 return true;
             }
         }
 
-        //Diagonal
+        // Diagonal
         if ((board[0][0] == play && board[1][1] == play && board[2][2] == play) || (board[2][0] == play && board[1][1] == play && board[0][2] == play)){
             return true;
         }
