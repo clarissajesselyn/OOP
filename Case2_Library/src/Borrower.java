@@ -3,8 +3,13 @@ import java.util.ArrayList;
 public class Borrower {
     public String name;
     public ArrayList<Book> borrowBooks = new ArrayList<Book>();
+    
     public Borrower(String name){
         this.name = name;
+    }
+
+    public String getName(){
+        return name;
     }
 
     public void borrowBook(Book book){
@@ -19,7 +24,7 @@ public class Borrower {
     }
 
     public void displayBorrowedBooks(){
-        System.out.println(this.name+"'s Borrowed Books:");
+        System.out.println(name + "'s Borrowed Books:");
         for (Book borrowedBook:borrowBooks){
             borrowedBook.displayBook();
         }

@@ -7,6 +7,7 @@ public class Board{
             }
         }
     }
+    
     public void printBoard(){
         for (int i = 0; i<3; i++){
             for (int j = 0; j<3; j++){
@@ -15,16 +16,13 @@ public class Board{
             System.out.println();
         }
     }
+
     public void setBoard(int x, int y, char play){
         board[y][x] = play;
     }
-    
-    public boolean checkBoard(int x, int y, char check){
-        if (board[y][x] == check){
-            return true;
-        } else {
-            return false;
-        }
+
+    public char getBoardFill(int x, int y){
+        return board[y][x];
     }
 
     public boolean checkWinner(char play){

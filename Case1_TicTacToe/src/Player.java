@@ -5,4 +5,12 @@ public class Player {
         this.play = play;
         this.numPlayer = numPlayer;
     }
+
+    public char getCharPlay(){
+        return play;
+    }
+
+    public int getNumPlayer (){
+        return numPlayer;
+    }
 }

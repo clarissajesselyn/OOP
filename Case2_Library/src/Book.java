@@ -11,8 +11,18 @@ public class Book{
     public void displayBook(){
         System.out.println("Title: " + title);
         System.out.println("ISBN: " + isbn);
-        System.out.println("Author: " + author.name);
-        System.out.println("Biography: " + author.biography);
+        System.out.println("Author: " + author.getName());
+        System.out.println("Biography: " + author.getBio());
         System.out.println("------------------------");
+    }
+
+    public String getTittle(){
+        return title;
+    }
+    public String getIsbn(){
+        return isbn;
+    }
+    public Author getAuthor(){
+        return author;
     }
 }
