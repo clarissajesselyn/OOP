@@ -1,7 +1,7 @@
 public class Book{
-    public String title;
-    public String isbn;
-    public Author author;
+    private String title;
+    private String isbn;
+    private Author author;
     public Book(String title, String isbn, Author author){
         this.title = title;
         this.isbn = isbn;
@@ -13,7 +13,7 @@ public class Book{
         System.out.println("ISBN: " + isbn);
         System.out.println("Author: " + author.getName());
         System.out.println("Biography: " + author.getBio());
-        System.out.println("------------------------");
+        System.out.println("---------------------------------------------------------");
     }
 
     public String getTittle(){
