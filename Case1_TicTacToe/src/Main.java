@@ -9,12 +9,8 @@ public class Main {
         System.out.println("Tic Tac Toe Game");
         board.printBoard();
         
-        Game game = new Game(board);
-       
-        do {
-            if (game.Playing(player1)) break;
-            else if (game.Playing(player2)) break;
-        } while (true);
+        Game game = new Game(board, player1, player2);
+        game.playing();
     }
     public static void main(String[] args) {
         new Main();
