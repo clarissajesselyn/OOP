@@ -1,7 +1,11 @@
 public class HP {
-    int value;
+    public int value;
    
     public HP(int value){
         this.value = value;
+    }
+
+    public void printHP(){
+        System.out.println(" current HP is " + value);
     }
 }
