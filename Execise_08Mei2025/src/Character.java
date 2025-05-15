@@ -11,24 +11,12 @@ public class Character{
         this.defense = defense;
     }
 
-    public int getDamage() {
-        return damage;
-    }
-
-    public HP getHp() {
-        return hp;
-    }
-
     public int getDefense() {
         return defense;
     }
 
     public String getName() {
         return name;
-    }
-
-    public void setHPAfterAttacked(int value) {
-        this.hp.value -= value;
     }
 
     public void showHP(){

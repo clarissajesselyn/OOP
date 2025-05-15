@@ -6,7 +6,7 @@ public class Player extends Character implements IAttack, IRecoverable, IHeal{
     @Override
     public void attack(IDamageable damageable) {
         System.out.println(this.name + " attacking " + ((Enemy) damageable).getName());
-        ((Enemy) damageable).setHPAfterAttacked(damageable.takeDamage(damage, ((Enemy)damageable).defense));
+        ((Enemy) damageable).hp.value -= ((Enemy) damageable).takeDamage(this.damage, ((Enemy)damageable).getDefense());
     }
 
     @Override

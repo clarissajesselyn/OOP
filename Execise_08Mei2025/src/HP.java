@@ -6,6 +6,6 @@ public class HP {
     }
 
     public void printHP(){
-        System.out.println(" current HP is " + value);
+        System.out.println(" current HP is " + this.value);
     }
 }
